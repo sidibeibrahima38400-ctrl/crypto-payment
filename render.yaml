@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: crypto-payment-demo
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: WALLET_ETH
+        sync: false
+      - key: WALLET_BNB
+        sync: false
+      - key: WALLET_SOL
+        sync: false
+      - key: WALLET_BTC
+        sync: false
+      - key: WALLET_USDT_ETH
+        sync: false
+      - key: WALLET_USDT_BNB
+        sync: false
